@@ -32,7 +32,7 @@ public class Stats {
 
     private TrueTypeFont font;
 
-    Stats(int maxHp, int maxMp, int width, int height, int playerX, int playerY, int currentHp){
+    public Stats(int maxHp, int maxMp, int width, int height, int playerX, int playerY, int currentHp){
         this.maxHp = maxHp;
         this.maxMp = maxMp;
         this.currentHp = maxHp;

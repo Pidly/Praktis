@@ -2,26 +2,29 @@ package Characters;
 
 import Game.Main;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public abstract class Character {
-    int hp;
-    int mp;
 
-    int str;
-    int spirit;
+    protected int hp;
+    protected int mp;
 
-    int maxhp, maxmp;
-    int currentHp;
+    protected int str;
+    protected int spirit;
 
-    int speed;
+    protected int currentHp;
 
-    int x, y;
-    int width, height;
+    protected int x, y;
+    protected int width, height;
 
-    int test;
+    protected List<Ability> abilities = new ArrayList<Ability>();
 
     String name;
 
-    Character(int x, int y, int width, int height){
+    protected Stats stats;
+
+    public Character(int x, int y, int width, int height){
         this.x = x;
         this.y = y;
         this.width = width;
@@ -32,6 +35,27 @@ public abstract class Character {
         return hp;
     }
 
-    abstract void draw();
-    abstract void update();
+    abstract public void draw();
+    abstract public void update();
+    abstract protected void takeDamage(int damage);
+
+    public void resetTimer(){
+        stats.resetProgressBar();
+    }
+
+    public List<Ability> getAbilities(){
+        return abilities;
+    }
+
+    public void healDamage(int healAmount){
+        currentHp += healAmount;
+
+        if(currentHp > hp)
+            currentHp = hp;
+    }
+
+    public boolean ready(){
+        return stats.ready;
+    }
+
 }

@@ -1,18 +1,33 @@
 package Game;
 
+import Characters.Ability;
 import Characters.Enemy;
+import Characters.Healer.Healer;
 import Characters.Player;
+import Characters.Character;
+
 import org.lwjgl.input.Keyboard;
 
 import java.util.List;
 
 public class Battle implements InputHandler{
     List<Player> players;
+    List<Enemy> enemies;
+
+    // extre comment
     Player player;
     Enemy enemy;
+    Healer healer;
 
     Battle(List<Player> players, List<Enemy> enemies){
         this.players = players;
+        this.enemies = enemies;
+    }
+
+    Battle(List<Player> players, List<Enemy> enemies, Healer healer){
+        this.players = players;
+        this.enemies = enemies;
+        this.healer = healer;
     }
 
     Battle(Player player){
@@ -46,12 +61,28 @@ public class Battle implements InputHandler{
 
     @Override
     public void confirm() {
-        player.attack(enemy);
+        for(int i = 0; i < players.size(); i++){
+            if(players.get(i).ready() && players.get(i).isSelected()){
+                List<Ability> abilities = players.get(i).getAbilities();
+                abilities.get(0).useAbility(enemies);
+                players.get(i).resetTimer();
+                Player.activePlayer = false;
+                players.get(i).setSelected(false);
+            }
+        }
     }
 
     @Override
     public void cancel() {
 
+    }
+
+    public List<Player> getPlayers(){
+        return players;
+    }
+
+    public List<Enemy> getEnemies(){
+        return enemies;
     }
 
     private void attackMob(){
