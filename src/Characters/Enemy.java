@@ -18,6 +18,7 @@ public class Enemy extends Character implements Combat {
     AttackAbility attackAbility;
     List<Ability> abilities = new ArrayList<Ability>();
 
+    EnemyStats enemyStats;
     public Enemy(int x, int y, int width, int height){
         super(x,y,width,height);
 
@@ -31,7 +32,7 @@ public class Enemy extends Character implements Combat {
         this.currentHp = 40;
         hp = 40;
 
-        stats = new Stats(hp, 0, width, height, x, y, this.currentHp);
+        enemyStats = new EnemyStats(hp, 0, width, height, x, y, this.currentHp);
     }
 
     @Override
@@ -48,7 +49,7 @@ public class Enemy extends Character implements Combat {
 
             GL11.glEnd();
 
-            stats.draw();
+            enemyStats.draw();
         }
     }
 
@@ -57,11 +58,11 @@ public class Enemy extends Character implements Combat {
         if(this.currentHp < 0)
             this.currentHp = 0;
 
-        stats.upDate(0.0035f, this.currentHp);
+        enemyStats.upDate(0.0035f, this.currentHp);
 
-        if(stats.ready){
-            stats.currentProgress = 0;
-            stats.ready = false;
+        if(enemyStats.ready){
+            enemyStats.currentProgress = 0;
+            enemyStats.ready = false;
             attack();
         }
     }

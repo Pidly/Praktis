@@ -12,13 +12,19 @@ import java.awt.Font;
 
 public class Stats {
     int progressX,progressY;
+
+    int resourceBarX, resourceBarY;
+
+    int maxResource;
+    int currentResource;
+
     int currentProgressX;
     int hpX, hpY;
 
     int width, height;
 
     final int maxHp;
-    private int currentHp;
+    protected int currentHp;
     final int maxMp;
 
     float minProgress;
@@ -30,7 +36,7 @@ public class Stats {
 
     Font awtFont = new Font("Times New Roman", Font.BOLD, 24);
 
-    private TrueTypeFont font;
+    protected TrueTypeFont font;
 
     public Stats(int maxHp, int maxMp, int width, int height, int playerX, int playerY, int currentHp){
         this.maxHp = maxHp;
@@ -52,6 +58,11 @@ public class Stats {
         hpX = progressX;
         hpY = progressY - this.height*2;
 
+        resourceBarX = progressX;
+        resourceBarY = progressY + this.height*2;
+
+        maxResource = 100;
+        currentResource = 100;
         //Working on getting a moving progress bar.
         currentProgressX = progressX;
     }
@@ -78,12 +89,25 @@ public class Stats {
 
         GL11.glColor4f(0.5f, 0.2f, .3f, 1.0f);
 
+        //Drawing progress bar
         GL11.glBegin(GL11.GL_QUADS);
 
         GL11.glVertex2f(progressX, progressY);
         GL11.glVertex2f(progressX + width*currentProgress, progressY);
-        GL11.glVertex2f(progressX + width*currentProgress, progressY+height);
-        GL11.glVertex2f(progressX, progressY+height);
+        GL11.glVertex2f(progressX + width*currentProgress, progressY + height);
+        GL11.glVertex2f(progressX, progressY + height);
+
+        GL11.glEnd();
+
+        //Drawing resource bar
+        GL11.glColor4f(0.8f, 0.8f, 0.2f, 1.0f);
+
+        GL11.glBegin(GL11.GL_QUADS);
+
+        GL11.glVertex2f(resourceBarX, resourceBarY);
+        GL11.glVertex2f(resourceBarX + width*getBarPercentage(), resourceBarY);
+        GL11.glVertex2f(resourceBarX + width*getBarPercentage(), resourceBarY + height);
+        GL11.glVertex2f(resourceBarX, resourceBarY + height);
 
         GL11.glEnd();
 
@@ -91,6 +115,10 @@ public class Stats {
 
         Color.white.bind();
         font.drawString(hpX, hpY, "HP: " + this.currentHp + "/" + this.maxHp, Color.white);
+    }
+
+    private float getBarPercentage(){
+        return (float)currentResource / (float)maxResource;
     }
 
 }
