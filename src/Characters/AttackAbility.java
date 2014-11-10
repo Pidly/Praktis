@@ -10,6 +10,12 @@ import java.util.List;
  * To change this template use File | Settings | File Templates.
  */
 public class AttackAbility extends Ability {
+    Character character;
+
+    public AttackAbility(Character character){
+        this.character = character;
+    }
+
     @Override
     public void useAbility(List<? extends Character> targets) {
         targets.get(0).takeDamage(5);

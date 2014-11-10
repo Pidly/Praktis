@@ -62,7 +62,7 @@ public class Stats {
         resourceBarY = progressY + this.height*2;
 
         maxResource = 100;
-        currentResource = 100;
+        currentResource = 50;
         //Working on getting a moving progress bar.
         currentProgressX = progressX;
     }

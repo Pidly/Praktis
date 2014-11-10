@@ -22,7 +22,7 @@ public class Enemy extends Character implements Combat {
     public Enemy(int x, int y, int width, int height){
         super(x,y,width,height);
 
-        attackAbility = new AttackAbility();
+        attackAbility = new AttackAbility(this);
 
         abilities.add(attackAbility);
 

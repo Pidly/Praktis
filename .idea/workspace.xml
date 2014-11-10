@@ -7,7 +7,13 @@
     <file path="/fragment.java" changelist="27113796-c46c-4462-a823-5f9ab4e3fdfe" time="1415487434472" ignored="false" />
     <file path="/Stats.java" changelist="27113796-c46c-4462-a823-5f9ab4e3fdfe" time="1415495815685" ignored="false" />
     <file path="/EnemyStats.java" changelist="27113796-c46c-4462-a823-5f9ab4e3fdfe" time="1415495754125" ignored="false" />
-    <file path="/Enemy.java" changelist="27113796-c46c-4462-a823-5f9ab4e3fdfe" time="1415495979137" ignored="false" />
+    <file path="/Enemy.java" changelist="27113796-c46c-4462-a823-5f9ab4e3fdfe" time="1415651619733" ignored="false" />
+    <file path="/AttackAbility.java" changelist="27113796-c46c-4462-a823-5f9ab4e3fdfe" time="1415651466356" ignored="false" />
+    <file path="/Warrior.java" changelist="27113796-c46c-4462-a823-5f9ab4e3fdfe" time="1415651486082" ignored="false" />
+    <file path="/Cure.java" changelist="27113796-c46c-4462-a823-5f9ab4e3fdfe" time="1415651841469" ignored="false" />
+    <file path="/Healer.java" changelist="27113796-c46c-4462-a823-5f9ab4e3fdfe" time="1415651589131" ignored="false" />
+    <file path="/Character.java" changelist="27113796-c46c-4462-a823-5f9ab4e3fdfe" time="1415652174420" ignored="false" />
+    <file path="/WarriorPrimaryAbility.java" changelist="27113796-c46c-4462-a823-5f9ab4e3fdfe" time="1415652185916" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,7 +92,27 @@
       <file leaf-file-name="Character.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Characters/Character.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="22" selection-start="114" selection-end="114" vertical-scroll-proportion="0.0">
+            <state line="72" column="54" selection-start="1529" selection-end="1529" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Ability.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Characters/Ability.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="10" column="69" selection-start="224" selection-end="224" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AttackAbility.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Characters/AttackAbility.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="16" column="5" selection-start="364" selection-end="364" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -95,7 +121,38 @@
       <file leaf-file-name="Stats.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Characters/Stats.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="102" column="38" selection-start="2469" selection-end="2469" vertical-scroll-proportion="0.7904903">
+            <state line="64" column="29" selection-start="1449" selection-end="1449" vertical-scroll-proportion="0.6814159">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Healer.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Characters/Healer/Healer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="28" column="20" selection-start="653" selection-end="653" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Cure.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Characters/Healer/Cure.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="28" column="48" selection-start="644" selection-end="644" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="WarriorPrimaryAbility.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Characters/Warrior/WarriorPrimaryAbility.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="24" column="47" selection-start="604" selection-end="604" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -106,16 +163,16 @@
       <file leaf-file-name="Enemy.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Characters/Enemy.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="64" column="22" selection-start="1464" selection-end="1464" vertical-scroll-proportion="0.0">
+            <state line="24" column="48" selection-start="596" selection-end="596" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="EnemyStats.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Characters/EnemyStats.java">
+      <file leaf-file-name="Warrior.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Characters/Warrior/Warrior.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="23" selection-start="510" selection-end="510" vertical-scroll-proportion="0.0">
+            <state line="17" column="48" selection-start="415" selection-end="415" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -133,30 +190,30 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/Game/InputHandler.java" />
         <option value="$PROJECT_DIR$/src/Characters/Healer.java" />
         <option value="$PROJECT_DIR$/src/Game/Combat.java" />
         <option value="$PROJECT_DIR$/src/Characters/Ability.java" />
-        <option value="$PROJECT_DIR$/src/Characters/Healer/Cure.java" />
-        <option value="$PROJECT_DIR$/src/Characters/AttackAbility.java" />
         <option value="$PROJECT_DIR$/src/Game/Input.java" />
-        <option value="$PROJECT_DIR$/src/Characters/Character.java" />
         <option value="$PROJECT_DIR$/src/Characters/Player.java" />
-        <option value="$PROJECT_DIR$/src/Characters/Warrior/Warrior.java" />
-        <option value="$PROJECT_DIR$/src/Characters/Healer/Healer.java" />
         <option value="$PROJECT_DIR$/src/Game/Main.java" />
         <option value="$PROJECT_DIR$/src/Game/Battle.java" />
         <option value="$PROJECT_DIR$/src/Characters/EnemyStats.java" />
+        <option value="$PROJECT_DIR$/src/Characters/AttackAbility.java" />
+        <option value="$PROJECT_DIR$/src/Characters/Warrior/Warrior.java" />
+        <option value="$PROJECT_DIR$/src/Characters/Healer/Healer.java" />
         <option value="$PROJECT_DIR$/src/Characters/Enemy.java" />
+        <option value="$PROJECT_DIR$/src/Characters/Healer/Cure.java" />
+        <option value="$PROJECT_DIR$/src/Characters/Character.java" />
+        <option value="$PROJECT_DIR$/src/Characters/Warrior/WarriorPrimaryAbility.java" />
         <option value="$PROJECT_DIR$/src/Characters/Stats.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="511" />
-    <option name="y" value="234" />
+    <option name="x" value="67" />
+    <option name="y" value="35" />
     <option name="width" value="1819" />
-    <option name="height" value="1102" />
+    <option name="height" value="1333" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -184,6 +241,8 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -248,6 +307,50 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Characters" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Warrior" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Praktis" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Praktis" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Characters" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Healer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Praktis" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Praktis" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="lib 2" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -268,13 +371,12 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="GoToFile.includeJavaFiles" value="false" />
     <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="OverrideImplement.combined" value="true" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.lastSelected" value="android.dex.compiler" />
@@ -462,7 +564,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="511" y="234" width="1819" height="1102" extended-state="0" />
+    <frame x="67" y="35" width="1819" height="1333" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -473,15 +575,15 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32896763" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32892057" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22447829" sideWeight="0.7138493" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.28615072" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22447829" sideWeight="0.768343" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23165704" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -564,13 +666,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Characters/Player.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Game/Combat.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
@@ -579,27 +674,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Game/InputHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Characters/Healer/Cure.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Characters/Ability.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Characters/AttackAbility.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
@@ -627,16 +701,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Characters/Warrior/Warrior.java">
+    <entry file="file://$PROJECT_DIR$/src/Characters/EnemyStats.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Characters/Healer/Healer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+        <state line="18" column="23" selection-start="510" selection-end="510" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -650,23 +717,64 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Characters/Character.java">
+    <entry file="file://$PROJECT_DIR$/src/Characters/Healer/Healer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="22" selection-start="114" selection-end="114" vertical-scroll-proportion="0.0">
-          <folding />
+        <state line="28" column="20" selection-start="653" selection-end="653" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Characters/Enemy.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="64" column="22" selection-start="1464" selection-end="1464" vertical-scroll-proportion="0.0">
+        <state line="24" column="48" selection-start="596" selection-end="596" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Characters/EnemyStats.java">
+    <entry file="file://$PROJECT_DIR$/src/Characters/Healer/Cure.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="23" selection-start="510" selection-end="510" vertical-scroll-proportion="0.0">
+        <state line="28" column="48" selection-start="644" selection-end="644" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Characters/AttackAbility.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="5" selection-start="364" selection-end="364" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Characters/Character.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="72" column="54" selection-start="1529" selection-end="1529" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Characters/Warrior/WarriorPrimaryAbility.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="47" selection-start="604" selection-end="604" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Characters/Warrior/Warrior.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="48" selection-start="415" selection-end="415" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Characters/Ability.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="69" selection-start="224" selection-end="224" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -675,7 +783,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Characters/Stats.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="102" column="38" selection-start="2469" selection-end="2469" vertical-scroll-proportion="0.7904903">
+        <state line="64" column="29" selection-start="1449" selection-end="1449" vertical-scroll-proportion="0.6814159">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

@@ -23,7 +23,7 @@ public class Healer extends Player {
         super(x, y, width, height);
 
         abilities = new ArrayList<Ability>();
-        abilities.add(new Cure());
+        abilities.add(new Cure(this));
 
         str = 10;
         spirit = 20;

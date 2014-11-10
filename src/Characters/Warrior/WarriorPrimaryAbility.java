@@ -1,37 +1,33 @@
-package Characters.Healer;
+package Characters.Warrior;
 
-import Characters.Ability;
+import Characters.*;
 import Characters.Character;
-import Game.Combat;
 
 import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
  * User: devinsmythe
- * Date: 10/26/14
- * Time: 3:29 PM
+ * Date: 11/10/14
+ * Time: 12:38 PM
  * To change this template use File | Settings | File Templates.
  */
-public class Cure extends Ability {
+public class WarriorPrimaryAbility extends Ability {
     Character character;
 
-    public Cure(Character character){
+    public WarriorPrimaryAbility(Character character){
         this.character = character;
     }
-
     @Override
     public void useAbility(List<? extends Character> targets) {
-        for(Character target : targets){
-            target.healDamage(1);
-        }
+       targets.get(0).takeDamage(7);
 
-        character.decreaseCurrentResourceBy(10);
+       character.increaseCurrentResourceBy(10);
     }
 
     @Override
     public boolean offensiveMove() {
-        return false;
+        return true;
     }
 
     @Override

@@ -37,7 +37,7 @@ public abstract class Character {
 
     abstract public void draw();
     abstract public void update();
-    abstract protected void takeDamage(int damage);
+    abstract public void takeDamage(int damage);
 
     public void resetTimer(){
         stats.resetProgressBar();
@@ -58,4 +58,19 @@ public abstract class Character {
         return stats.ready;
     }
 
+    public void decreaseCurrentResourceBy(int resourceUsed){
+        stats.currentResource -= resourceUsed;
+
+        if(stats.currentResource < 0){
+            stats.currentResource = 0;
+        }
+    }
+
+    public void increaseCurrentResourceBy(int resourceGained){
+        stats.currentResource += resourceGained;
+
+        if(stats.currentResource > stats.maxResource){
+            stats.currentResource = stats.maxResource;
+        }
+    }
 }
