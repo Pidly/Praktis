@@ -3,6 +3,9 @@ package Characters;
 import Game.Combat;
 import org.lwjgl.opengl.GL11;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created with IntelliJ IDEA.
  * User: devinsmythe
@@ -11,17 +14,24 @@ import org.lwjgl.opengl.GL11;
  * To change this template use File | Settings | File Templates.
  */
 public class Enemy extends Character implements Combat {
-    Stats mobStats;
+
+    AttackAbility attackAbility;
+    List<Ability> abilities = new ArrayList<Ability>();
 
     public Enemy(int x, int y, int width, int height){
         super(x,y,width,height);
+
+        attackAbility = new AttackAbility();
+
+        abilities.add(attackAbility);
 
         str = 10;
         spirit = 5;
 
         this.currentHp = 40;
+        hp = 40;
 
-        mobStats = new Stats(currentHp, 0, width, height, x, y, this.currentHp);
+        stats = new Stats(hp, 0, width, height, x, y, this.currentHp);
     }
 
     @Override
@@ -38,7 +48,7 @@ public class Enemy extends Character implements Combat {
 
             GL11.glEnd();
 
-            mobStats.draw();
+            stats.draw();
         }
     }
 
@@ -47,16 +57,26 @@ public class Enemy extends Character implements Combat {
         if(this.currentHp < 0)
             this.currentHp = 0;
 
-        mobStats.upDate(0.0035f, this.currentHp);
+        stats.upDate(0.0035f, this.currentHp);
 
-        if(mobStats.ready){
-            mobStats.currentProgress = 0;
-            mobStats.ready = false;
+        if(stats.ready){
+            stats.currentProgress = 0;
+            stats.ready = false;
             attack();
         }
     }
 
-    public void attack(){
+    @Override
+    public void resetTimer() {
+        //To change body of implemented methods use File | Settings | File Templates.
+    }
+
+    @Override
+    public List<Ability> getAbilities() {
+        return abilities;
+    }
+
+    private void attack(){
 
     }
 

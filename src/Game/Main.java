@@ -1,7 +1,9 @@
 package Game;
 
 import Characters.Enemy;
+import Characters.Healer.Healer;
 import Characters.Player;
+import Characters.Warrior.Warrior;
 import org.lwjgl.LWJGLException;
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.opengl.Display;
@@ -18,8 +20,8 @@ public class Main {
     //1280, 720
 
     public final static int FRAME_RATE = 17;
-    public static int screenx = 1920;
-    public static int screeny = 1080;
+    public static int screenx = 1280;
+    public static int screeny = 720;
     int x = 300;
     int y = 0;
 
@@ -57,7 +59,9 @@ public class Main {
         Player player = new Player(pX, pY, screeny/7, screeny/7);
          */
 
-        Player player = new Player(pX, pY, pW, pH);
+        Warrior warrior = new Warrior(pX, pY, pW, pH);
+        //Player player = new Player(pX, pY, pW, pH);
+
         Enemy enemy = new Enemy(200, 500, 100, 100);
 
         GL11.glEnable(GL11.GL_TEXTURE_2D);
@@ -89,11 +93,13 @@ public class Main {
 
         List<Player> players = new ArrayList<Player>();
         List<Enemy> enemies = new ArrayList<Enemy>();
+        Healer healer = new Healer(pX, pY - 300, pW, pH);
 
-        players.add(player);
+        players.add(warrior);
+        players.add(healer);
         enemies.add(enemy);
 
-        Battle battle = new Battle(player, enemy);
+        Battle battle = new Battle(players, enemies, healer);
 
         while(!Display.isCloseRequested()){
 
@@ -103,12 +109,16 @@ public class Main {
 
 
             GL11.glDisable(GL11.GL_TEXTURE_2D);
-            enemy.draw();
-            enemy.update();
 
-            player.draw();
-            player.update();
+            for(Enemy enemy1 : enemies){
+                enemy1.draw();
+                enemy1.update();
+            }
 
+            for(Player player1 : players){
+                player1.draw();
+                player1.update();
+            }
 
             Input.getInput(battle);
 
