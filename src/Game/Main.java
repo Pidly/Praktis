@@ -20,8 +20,8 @@ public class Main {
     //1280, 720
 
     public final static int FRAME_RATE = 17;
-    public static int screenx = 1280;
-    public static int screeny = 720;
+    public static int screenx = 1920;
+    public static int screeny = 1080;
     int x = 300;
     int y = 0;
 
@@ -38,7 +38,15 @@ public class Main {
 
     public void start(){
         try {
+            /*
+            DisplayMode displayMode = Display.getDesktopDisplayMode();
+
             Display.setDisplayMode(new DisplayMode(screenx, screeny));
+            */
+            DisplayMode displayMode = Display.getDesktopDisplayMode();
+
+            Display.setDisplayMode(displayMode);
+
             Display.create();
         } catch (LWJGLException e) {
             e.printStackTrace();
@@ -101,7 +109,7 @@ public class Main {
 
         Battle battle = new Battle(players, enemies, healer);
 
-        while(!Display.isCloseRequested()){
+        while(!Display.isCloseRequested() && !Input.getExitState()){
 
             long currentMillis = System.currentTimeMillis();
 
