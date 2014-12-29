@@ -43,8 +43,8 @@ public class Enemy extends Character implements Combat {
 
             GL11.glVertex2f(x, y);
             GL11.glVertex2f(x+width, y);
-            GL11.glVertex2f(x+width, y+height);
-            GL11.glVertex2f(x, y+height);
+            GL11.glVertex2f(x+width, y - height);
+            GL11.glVertex2f(x, y - height);
 
             GL11.glEnd();
 

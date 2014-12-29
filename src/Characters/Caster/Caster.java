@@ -1,18 +1,16 @@
-package Characters.Warrior;
+package Characters.Caster;
 
-import Characters.*;
-import Characters.Character;
+
+import Characters.AttackAbility;
+import Characters.Player;
+import Characters.Stats;
 import org.lwjgl.opengl.GL11;
 
-import java.util.ArrayList;
-import java.util.List;
-
-public class Warrior extends Player {
+public class Caster extends Player {
     private boolean selected = false;
-
     AttackAbility attackAbility;
 
-    public Warrior(int x, int y, int width, int height){
+    public Caster(int x, int y, int width, int height) {
         super(x, y, width, height);
 
         attackAbility = new AttackAbility();

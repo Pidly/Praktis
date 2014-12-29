@@ -1,5 +1,6 @@
 package Game;
 
+import Characters.Caster.Caster;
 import Characters.Enemy;
 import Characters.Healer.Healer;
 import Characters.Player;
@@ -11,6 +12,9 @@ import org.lwjgl.opengl.DisplayMode;
 import org.lwjgl.opengl.GL11;
 import org.newdawn.slick.*;
 import org.newdawn.slick.Color;
+
+import Display.ScreenDisplay;
+import Display.BattleDisplay;
 
 import java.awt.Font;
 import java.util.ArrayList;
@@ -37,15 +41,11 @@ public class Main {
     }
 
     public void start(){
+        ScreenDisplay screenDisplay = null;
         try {
-            /*
-            DisplayMode displayMode = Display.getDesktopDisplayMode();
+            screenDisplay = new ScreenDisplay();
 
-            Display.setDisplayMode(new DisplayMode(screenx, screeny));
-            */
-            DisplayMode displayMode = Display.getDesktopDisplayMode();
-
-            Display.setDisplayMode(displayMode);
+            Display.setDisplayMode(screenDisplay.getDisplayMode());
 
             Display.create();
         } catch (LWJGLException e) {
@@ -53,22 +53,15 @@ public class Main {
             System.exit(0);
         }
 
-        int pX = Main.screenx - Main.screenx/8;
-        int pY = Main.screeny/2;
-        int pW = Main.screenx/16;
-        int pH = Main.screeny/8;
+        BattleDisplay battleDisplay = screenDisplay.getBattleDisplay();
 
-        /*
-        this.x = Main.screenx - Main.screenx/8;
-        this.y = Main.screeny/2;
-        this.width = Main.screenx/16;
-        this.height = Main.screeny/8;
+        int pX = battleDisplay.px;
+        int pY = battleDisplay.py;
+        int pW = ScreenDisplay.tileSize;
+        int pH = ScreenDisplay.tileSize;
 
-        Player player = new Player(pX, pY, screeny/7, screeny/7);
-         */
 
         Warrior warrior = new Warrior(pX, pY, pW, pH);
-        //Player player = new Player(pX, pY, pW, pH);
 
         Enemy enemy = new Enemy(200, 500, 100, 100);
 
@@ -88,12 +81,12 @@ public class Main {
 
         GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
 
-        GL11.glViewport(0,0,screenx,screeny);
+        GL11.glViewport(0, 0, screenDisplay.screenWidth, screenDisplay.screenHeight);
         GL11.glMatrixMode(GL11.GL_MODELVIEW);
 
         GL11.glMatrixMode(GL11.GL_PROJECTION);
         GL11.glLoadIdentity();
-        GL11.glOrtho(0, screenx, screeny, 0, 1, -1);
+        GL11.glOrtho(0, screenDisplay.screenWidth, screenDisplay.screenHeight, 0, 1, -1);
         GL11.glMatrixMode(GL11.GL_MODELVIEW);
 
         ttFont = new TrueTypeFont(font, antiAlias);
@@ -101,10 +94,13 @@ public class Main {
 
         List<Player> players = new ArrayList<Player>();
         List<Enemy> enemies = new ArrayList<Enemy>();
-        Healer healer = new Healer(pX, pY - 300, pW, pH);
+        Healer healer = new Healer(battleDisplay.p2x, battleDisplay.p2y, ScreenDisplay.tileSize, ScreenDisplay.tileSize);
+
+        Caster caster = new Caster(battleDisplay.p3x, battleDisplay.p3y, ScreenDisplay.tileSize, ScreenDisplay.tileSize);
 
         players.add(warrior);
         players.add(healer);
+        players.add(caster);
         enemies.add(enemy);
 
         Battle battle = new Battle(players, enemies, healer);

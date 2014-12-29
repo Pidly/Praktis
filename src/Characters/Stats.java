@@ -42,7 +42,7 @@ public class Stats {
         maxProgress = 100;
 
         progressX = playerX - width/5;
-        progressY = playerY + height + (height/3);
+        progressY = playerY + height/2; //+ (height/3);
 
         this.width = width + (width/3);
         this.height = height / 6;
@@ -52,7 +52,6 @@ public class Stats {
         hpX = progressX;
         hpY = progressY - this.height*2;
 
-        //Working on getting a moving progress bar.
         currentProgressX = progressX;
     }
 

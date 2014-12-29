@@ -44,14 +44,21 @@ public class Healer extends Player {
         GL11.glBegin(GL11.GL_QUADS);
 
         GL11.glVertex2f(x, y);
-        GL11.glVertex2f(x+width, y);
-        GL11.glVertex2f(x+width, y+height);
-        GL11.glVertex2f(x, y+height);
+        GL11.glVertex2f(x + width, y);
+        GL11.glVertex2f(x + width, y - height);
+        GL11.glVertex2f(x, y - height);
 
         GL11.glEnd();
 
         stats.draw();
     }
+    /*
+        GL11.glVertex2f(px, py);
+        GL11.glVertex2f(px + ScreenDisplay.tileSize, py);
+        GL11.glVertex2f(px + ScreenDisplay.tileSize, py - ScreenDisplay.tileSize);
+        GL11.glVertex2f(px, py - ScreenDisplay.tileSize);
+        GL11.glEnd();
+     */
 
     @Override
     public void update() {
