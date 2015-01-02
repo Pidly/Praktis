@@ -24,8 +24,7 @@ public class Main {
     //1280, 720
 
     public final static int FRAME_RATE = 17;
-    public static int screenx = 1920;
-    public static int screeny = 1080;
+
     int x = 300;
     int y = 0;
 
@@ -63,7 +62,7 @@ public class Main {
 
         Warrior warrior = new Warrior(pX, pY, pW, pH);
 
-        Enemy enemy = new Enemy(200, 500, 100, 100);
+        Enemy enemy = new Enemy(200, 200, 100, 100);
 
         GL11.glEnable(GL11.GL_TEXTURE_2D);
 
@@ -113,6 +112,8 @@ public class Main {
 
 
             GL11.glDisable(GL11.GL_TEXTURE_2D);
+
+            battleDisplay.draw();
 
             for(Enemy enemy1 : enemies){
                 enemy1.draw();

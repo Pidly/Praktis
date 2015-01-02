@@ -32,6 +32,15 @@ public class BattleDisplay {
     }
 
     public void draw(){
+        GL11.glColor3f(0.1f, 0.1f, 0.3f);
+        GL11.glBegin(GL11.GL_QUADS);
+
+        GL11.glVertex2f(leftDisplay, topDisplay);
+        GL11.glVertex2f(rightDisplay, topDisplay);
+        GL11.glVertex2f(rightDisplay, bottomDisplay);
+        GL11.glVertex2f(leftDisplay, bottomDisplay);
+        GL11.glEnd();
+
         GL11.glColor3f(0.5f, 0.8f, 0.5f);
         GL11.glBegin(GL11.GL_QUADS);
 
@@ -61,14 +70,15 @@ public class BattleDisplay {
     }
 
     private void setCharacterPositions(){
-        py = (int)(screenHeight * .33) - screenHeight/12; //- (ScreenDisplay.tileSize/2);
+        int yOffset = bottomDisplay;
+        py = (int)(screenHeight * .33) - screenHeight/12 + yOffset; //- (ScreenDisplay.tileSize/2);
         px = partyScreenXpos;
 
 
-        p2y = (int)(screenHeight * .66) - screenHeight/12;// - (ScreenDisplay.tileSize/2);
+        p2y = (int)(screenHeight * .66) - screenHeight/12 + yOffset;// - (ScreenDisplay.tileSize/2);
         p2x = partyScreenXpos;
 
-        p3y = screenHeight - screenHeight/7; //- (ScreenDisplay.tileSize/2);
+        p3y = screenHeight - screenHeight/7 + yOffset; //- (ScreenDisplay.tileSize/2);
         p3x = partyScreenXpos;
     }
 

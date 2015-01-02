@@ -27,8 +27,11 @@ public class ScreenDisplay {
 
         screenWidth = displayMode.getWidth();
         screenHeight = displayMode.getHeight();
+        //displayMode = new DisplayMode(screenWidth, screenHeight);
 
         float aspectRatio = (float)screenWidth / (float)screenHeight;
+
+        System.out.println("Initial Aspect Ratio: " + aspectRatio + "\n");
 
         if(aspectRatio > 1.6){
             double newAspectRatio = ((float)screenHeight * 1.6) / screenWidth;
@@ -44,12 +47,24 @@ public class ScreenDisplay {
             bottomScreenPosition = 0;
         }
         else if(aspectRatio < 1.6){
+            //double newAspectRatio = ((float)screenHeight * 1.6) / screenWidth;
+            double newAspectRatio = ((float)screenWidth / (1.6 * screenHeight));
+            System.out.println("New Ratio: " + newAspectRatio);
+            //playableScreenHeight = (int)(((float)screenWidth*newAspectRatio) / 1.6);
+            playableScreenHeight = (int)(screenHeight * newAspectRatio);
+            playableScreenWidth = screenWidth;
 
+            int difference = screenHeight - playableScreenHeight;
+
+            leftScreenPosition = 0;
+            rightScreenPosition = screenWidth;
+            bottomScreenPosition = difference/2;
+            topScreenPosition = bottomScreenPosition + playableScreenHeight;
         }
 
-        float newAspectRation = (float)playableScreenWidth / (float)playableScreenHeight;
+        float newAspectRatio = (float)playableScreenWidth / (float)playableScreenHeight;
 
-        System.out.println("Width: " + screenWidth + " Height: " + screenHeight + " Aspect Ratio: " + aspectRatio + " New Aspect Ratio: " + newAspectRation);
+        System.out.println("Width: " + screenWidth + " Height: " + screenHeight + " Aspect Ratio: " + aspectRatio + " New Aspect Ratio: " + newAspectRatio);
 
         tileSize = playableScreenHeight / 8;
 
