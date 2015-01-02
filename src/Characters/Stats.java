@@ -18,7 +18,7 @@ public class Stats {
     int width, height;
 
     final int maxHp;
-    private int currentHp;
+    protected int currentHp;
     final int maxMp;
 
     float minProgress;
@@ -28,9 +28,9 @@ public class Stats {
 
     boolean ready = false;
 
-    Font awtFont = new Font("Times New Roman", Font.BOLD, 24);
+    public Font awtFont = new Font("Times New Roman", Font.BOLD, 24);
 
-    private TrueTypeFont font;
+    protected TrueTypeFont font;
 
     public Stats(int maxHp, int maxMp, int width, int height, int playerX, int playerY, int currentHp){
         this.maxHp = maxHp;

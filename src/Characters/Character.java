@@ -22,7 +22,7 @@ public abstract class Character {
 
     String name;
 
-    protected Stats stats;
+    public Stats stats;
 
     public Character(int x, int y, int width, int height){
         this.x = x;
@@ -37,7 +37,7 @@ public abstract class Character {
 
     abstract public void draw();
     abstract public void update();
-    abstract protected void takeDamage(int damage);
+    abstract public void takeDamage(int damage);
 
     public void resetTimer(){
         stats.resetProgressBar();
@@ -56,6 +56,10 @@ public abstract class Character {
 
     public boolean ready(){
         return stats.ready;
+    }
+
+    public void increaseCurrentResourceBy(int amount){
+
     }
 
 }
