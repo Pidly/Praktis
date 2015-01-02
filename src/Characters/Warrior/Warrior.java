@@ -11,13 +11,17 @@ public class Warrior extends Player {
     private boolean selected = false;
 
     AttackAbility attackAbility;
+    WarriorPrimaryAbility primaryAbility;
 
     public Warrior(int x, int y, int width, int height){
         super(x, y, width, height);
 
         attackAbility = new AttackAbility();
-
+        primaryAbility = new WarriorPrimaryAbility(this);
         abilities.add(attackAbility);
+
+        maxClassResource = 100;
+        currentClassResource = 10;
 
         str = 20;
         spirit = 10;
@@ -26,7 +30,7 @@ public class Warrior extends Player {
 
         hp = 50;
         mp = 20;
-        stats = new Stats(hp, mp, width, height, this.x, this.y, this.currentHp);
+        stats = new Stats(hp, mp, width, height, this.x, this.y, this.currentHp, maxClassResource, currentClassResource);
     }
 
     @Override

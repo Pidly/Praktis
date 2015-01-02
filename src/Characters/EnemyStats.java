@@ -12,7 +12,7 @@ import org.newdawn.slick.Color;
  */
 public class EnemyStats extends Stats {
     public EnemyStats(int maxHp, int maxMp, int width, int height, int playerX, int playerY, int currentHp) {
-        super(maxHp, maxMp, width, height, playerX, playerY, currentHp);
+        super(maxHp, maxMp, width, height, playerX, playerY, currentHp, 0, 0);
     }
 
     @Override

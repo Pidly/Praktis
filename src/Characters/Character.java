@@ -18,6 +18,9 @@ public abstract class Character {
     protected int x, y;
     protected int width, height;
 
+    protected int currentClassResource = 0;
+    protected int maxClassResource = 0;
+
     protected List<Ability> abilities = new ArrayList<Ability>();
 
     String name;
@@ -59,7 +62,7 @@ public abstract class Character {
     }
 
     public void increaseCurrentResourceBy(int amount){
-
+        currentClassResource += amount;
     }
 
 }

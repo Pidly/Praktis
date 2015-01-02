@@ -31,7 +31,7 @@ public class Enemy extends Character implements Combat {
         this.currentHp = 40;
         hp = 40;
 
-        stats = new Stats(hp, 0, width, height, x, y, this.currentHp);
+        stats = new Stats(hp, 0, width, height, x, y, this.currentHp, 0, 0);
     }
 
     @Override

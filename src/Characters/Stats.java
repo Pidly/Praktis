@@ -17,6 +17,9 @@ public class Stats {
 
     int width, height;
 
+    int resourceProgressX, resourceProgressY;
+    int currentResourceProgress;
+
     final int maxHp;
     protected int currentHp;
     final int maxMp;
@@ -32,7 +35,10 @@ public class Stats {
 
     protected TrueTypeFont font;
 
-    public Stats(int maxHp, int maxMp, int width, int height, int playerX, int playerY, int currentHp){
+    protected int maxResource;
+    protected int currentResource;
+
+    public Stats(int maxHp, int maxMp, int width, int height, int playerX, int playerY, int currentHp, int maxResource, int currentResource){
         this.maxHp = maxHp;
         this.maxMp = maxMp;
         this.currentHp = maxHp;
@@ -44,8 +50,12 @@ public class Stats {
         progressX = playerX - width/5;
         progressY = playerY + height/2; //+ (height/3);
 
+
         this.width = width + (width/3);
         this.height = height / 6;
+
+        resourceProgressX = progressX;
+        resourceProgressY = progressY + this.height;
 
         this.font = new TrueTypeFont(awtFont, true);
 
@@ -53,6 +63,9 @@ public class Stats {
         hpY = progressY - this.height*2;
 
         currentProgressX = progressX;
+
+        this.currentResource = currentResource;
+        this.maxResource = maxResource;
     }
 
     public void upDate(float updateRate, int currentHp){
@@ -65,6 +78,13 @@ public class Stats {
         }else if(!ready){
             this.currentProgress += updateRate;
         }
+
+        if(maxResource != 0)
+            currentResourceProgress = currentResource / maxResource;
+    }
+
+    public void setCurrentResourceProgressX(int resource){
+
     }
 
     public void resetProgressBar(){
@@ -84,6 +104,14 @@ public class Stats {
         GL11.glVertex2f(progressX + width*currentProgress, progressY+height);
         GL11.glVertex2f(progressX, progressY+height);
 
+        GL11.glEnd();
+
+        GL11.glColor3f(0.8f, 0.8f, 0.1f);
+        GL11.glBegin(GL11.GL_QUADS);
+        GL11.glVertex2f(resourceProgressX, resourceProgressY);
+        GL11.glVertex2f(resourceProgressX + width*currentResourceProgress, progressY);
+        GL11.glVertex2f(resourceProgressX + width*currentResourceProgress, progressY+height);
+        GL11.glVertex2f(resourceProgressX, progressY+height);
         GL11.glEnd();
 
         GL11.glEnable(GL11.GL_TEXTURE_2D);

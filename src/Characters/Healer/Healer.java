@@ -32,7 +32,7 @@ public class Healer extends Player {
 
         hp = 30;
 
-        stats = new Stats(hp, 25, width, height, this.x, this.y, this.currentHp);
+        stats = new Stats(hp, 25, width, height, this.x, this.y, this.currentHp, maxClassResource, currentClassResource);
     }
 
     @Override

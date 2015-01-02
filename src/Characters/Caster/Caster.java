@@ -24,7 +24,7 @@ public class Caster extends Player {
 
         hp = 50;
         mp = 20;
-        stats = new Stats(hp, mp, width, height, this.x, this.y, this.currentHp);
+        stats = new Stats(hp, mp, width, height, this.x, this.y, this.currentHp, maxClassResource, currentClassResource);
     }
 
     @Override
