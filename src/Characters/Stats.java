@@ -18,7 +18,7 @@ public class Stats {
     int width, height;
 
     int resourceProgressX, resourceProgressY;
-    int currentResourceProgress;
+    float currentResourceProgress;
 
     final int maxHp;
     protected int currentHp;
@@ -80,11 +80,14 @@ public class Stats {
         }
 
         if(maxResource != 0)
-            currentResourceProgress = currentResource / maxResource;
+            currentResourceProgress = (float)currentResource / (float)maxResource;
+        else{
+            currentResourceProgress = 0;
+        }
     }
 
     public void setCurrentResourceProgressX(int resource){
-
+        this.currentResource = resource;
     }
 
     public void resetProgressBar(){
@@ -109,9 +112,9 @@ public class Stats {
         GL11.glColor3f(0.8f, 0.8f, 0.1f);
         GL11.glBegin(GL11.GL_QUADS);
         GL11.glVertex2f(resourceProgressX, resourceProgressY);
-        GL11.glVertex2f(resourceProgressX + width*currentResourceProgress, progressY);
-        GL11.glVertex2f(resourceProgressX + width*currentResourceProgress, progressY+height);
-        GL11.glVertex2f(resourceProgressX, progressY+height);
+        GL11.glVertex2f(resourceProgressX + width*currentResourceProgress, resourceProgressY);
+        GL11.glVertex2f(resourceProgressX + width*currentResourceProgress, resourceProgressY+height);
+        GL11.glVertex2f(resourceProgressX, resourceProgressY+height);
         GL11.glEnd();
 
         GL11.glEnable(GL11.GL_TEXTURE_2D);

@@ -5,13 +5,11 @@ import Characters.Enemy;
 import Characters.Healer.Healer;
 import Characters.Player;
 import Characters.Warrior.Warrior;
+import Game.Battle.Battle;
 import org.lwjgl.LWJGLException;
-import org.lwjgl.input.Keyboard;
 import org.lwjgl.opengl.Display;
-import org.lwjgl.opengl.DisplayMode;
 import org.lwjgl.opengl.GL11;
 import org.newdawn.slick.*;
-import org.newdawn.slick.Color;
 
 import Display.ScreenDisplay;
 import Display.BattleDisplay;
@@ -118,11 +116,13 @@ public class Main {
             for(Enemy enemy1 : enemies){
                 enemy1.draw();
                 enemy1.update();
+                enemy1.updateStatusEffect();
             }
 
             for(Player player1 : players){
                 player1.draw();
                 player1.update();
+                player1.updateStatusEffect();
             }
 
             Input.getInput(battle);

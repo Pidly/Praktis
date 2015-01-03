@@ -16,9 +16,9 @@ public class Warrior extends Player {
     public Warrior(int x, int y, int width, int height){
         super(x, y, width, height);
 
-        attackAbility = new AttackAbility();
+        //attackAbility = new AttackAbility();
         primaryAbility = new WarriorPrimaryAbility(this);
-        abilities.add(attackAbility);
+        abilities.add(primaryAbility);
 
         maxClassResource = 100;
         currentClassResource = 10;

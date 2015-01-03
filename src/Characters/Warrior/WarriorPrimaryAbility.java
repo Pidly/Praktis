@@ -20,7 +20,7 @@ public class WarriorPrimaryAbility extends Ability {
     }
     @Override
     public void useAbility(List<? extends Character> targets) {
-       targets.get(0).takeDamage(7);
+       targets.get(0).takeDamage(calculateDamage());
 
        character.increaseCurrentResourceBy(10);
     }
@@ -38,5 +38,9 @@ public class WarriorPrimaryAbility extends Ability {
     @Override
     public boolean allTargets() {
         return false;
+    }
+
+    private int calculateDamage(){
+        return 10;
     }
 }
