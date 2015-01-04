@@ -5,6 +5,7 @@ import org.lwjgl.opengl.GL11;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 /**
  * Created with IntelliJ IDEA.
@@ -18,8 +19,12 @@ public class Enemy extends Character implements Combat {
     AttackAbility attackAbility;
     List<Ability> abilities = new ArrayList<Ability>();
 
-    public Enemy(int x, int y, int width, int height){
+    List<? extends Character> players;
+
+    public Enemy(int x, int y, int width, int height, List<? extends Character> players){
         super(x,y,width,height);
+
+        this.players = players;
 
         attackAbility = new AttackAbility();
 
@@ -77,7 +82,23 @@ public class Enemy extends Character implements Combat {
     }
 
     private void attack(){
+        List<Character> alivePlayers = new ArrayList<Character>();
 
+        for(int i = 0; i < players.size(); i++){
+            if(players.get(i).currentHp > 0){
+                Character character = players.get(i);
+                alivePlayers.add(character);
+            }
+        }
+        int numberOfCharacters = alivePlayers.size();
+        int target;
+
+        if(numberOfCharacters > 0) {
+            Random random = new Random();
+            target = random.nextInt(numberOfCharacters);
+
+            alivePlayers.get(target).takeDamage(dealDamage());
+        }
     }
 
     @Override

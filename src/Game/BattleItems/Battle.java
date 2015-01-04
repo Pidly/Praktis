@@ -1,13 +1,11 @@
-package Game.Battle;
+package Game.BattleItems;
 
 import Characters.Ability;
 import Characters.Enemy;
 import Characters.Healer.Healer;
 import Characters.Player;
-import Characters.Character;
 
 import Game.InputHandler;
-import org.lwjgl.input.Keyboard;
 
 import java.util.List;
 

@@ -18,6 +18,7 @@ public class WarriorPrimaryAbility extends Ability {
     public WarriorPrimaryAbility(Character character){
         this.character = character;
     }
+
     @Override
     public void useAbility(List<? extends Character> targets) {
        targets.get(0).takeDamage(calculateDamage());

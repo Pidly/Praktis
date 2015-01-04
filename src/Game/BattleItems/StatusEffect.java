@@ -1,4 +1,4 @@
-package Game.Battle;
+package Game.BattleItems;
 
 import Characters.Character;
 

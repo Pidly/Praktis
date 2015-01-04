@@ -5,7 +5,7 @@ import Characters.Enemy;
 import Characters.Healer.Healer;
 import Characters.Player;
 import Characters.Warrior.Warrior;
-import Game.Battle.Battle;
+import Game.BattleItems.Battle;
 import org.lwjgl.LWJGLException;
 import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.GL11;
@@ -60,8 +60,6 @@ public class Main {
 
         Warrior warrior = new Warrior(pX, pY, pW, pH);
 
-        Enemy enemy = new Enemy(200, 200, 100, 100);
-
         GL11.glEnable(GL11.GL_TEXTURE_2D);
 
         GL11.glShadeModel(GL11.GL_SMOOTH);
@@ -98,6 +96,9 @@ public class Main {
         players.add(warrior);
         players.add(healer);
         players.add(caster);
+
+        Enemy enemy = new Enemy(200, 200, 100, 100, players);
+
         enemies.add(enemy);
 
         Battle battle = new Battle(players, enemies, healer);

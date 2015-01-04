@@ -3,7 +3,7 @@ package Characters.Healer;
 
 import Characters.*;
 import Characters.Character;
-import Game.Battle.StatusEffect;
+import Game.BattleItems.StatusEffect;
 
 import java.util.List;
 

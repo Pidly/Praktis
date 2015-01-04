@@ -1,7 +1,6 @@
 package Characters;
 
-import Game.Battle.StatusEffect;
-import Game.Main;
+import Game.BattleItems.StatusEffect;
 
 import java.util.ArrayList;
 import java.util.Iterator;
