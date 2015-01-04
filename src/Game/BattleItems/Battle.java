@@ -18,6 +18,10 @@ public class Battle implements InputHandler {
     Enemy enemy;
     Healer healer;
 
+    Ability activeAbility;
+
+    private boolean selectingTarget = false;
+
     public Battle(List<Player> players, List<Enemy> enemies){
         this.players = players;
         this.enemies = enemies;
@@ -73,6 +77,10 @@ public class Battle implements InputHandler {
     @Override
     public void cancel() {
 
+    }
+
+    public boolean isSelectingTarget(){
+        return selectingTarget;
     }
 
     public List<Player> getPlayers(){
