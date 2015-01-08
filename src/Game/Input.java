@@ -23,8 +23,15 @@ public class Input {
                 if(Keyboard.getEventKey() == Keyboard.KEY_A){
                     inputHandler.confirm();
                 }
-                else if(Keyboard.getEventKey() == Keyboard.KEY_B)
+                else if(Keyboard.getEventKey() == Keyboard.KEY_B) {
                     setExitState(true);
+                }
+                else if(Keyboard.getEventKey() == Keyboard.KEY_DOWN){
+                    inputHandler.down();
+                }
+                else if(Keyboard.getEventKey() == Keyboard.KEY_UP){
+                    inputHandler.up();
+                }
             }
         }
         /*

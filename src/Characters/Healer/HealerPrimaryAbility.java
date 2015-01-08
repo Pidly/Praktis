@@ -37,7 +37,6 @@ public class HealerPrimaryAbility extends Ability implements StatusEffect{
         }
         if(!hasStatusEffect)
             character.addStatusEffect(new HealerPrimaryAbility(character));
-
     }
 
     @Override
@@ -52,7 +51,7 @@ public class HealerPrimaryAbility extends Ability implements StatusEffect{
 
     @Override
     public boolean allTargets() {
-        return false;
+        return true;
     }
 
     @Override
