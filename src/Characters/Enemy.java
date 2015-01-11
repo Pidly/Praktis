@@ -42,6 +42,8 @@ public class Enemy extends Character implements Combat {
     @Override
     public void draw() {
         if(currentHp > 0){
+            GL11.glDisable(GL11.GL_TEXTURE_2D);
+
             GL11.glColor4f(1.0f, 0.4f, 0.3f, 1.0f);
 
             GL11.glBegin(GL11.GL_QUADS);

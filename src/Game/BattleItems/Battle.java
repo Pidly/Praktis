@@ -7,6 +7,7 @@ import Characters.Healer.Healer;
 import Game.InputHandler;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class Battle implements InputHandler {
@@ -48,12 +49,22 @@ public class Battle implements InputHandler {
 
     @Override
     public void up() {
-
+        if(selectingTarget == true){
+            targetedCharacter++;
+            if(targetedCharacter >= enemies.size()){
+                targetedCharacter = 0;
+            }
+        }
     }
 
     @Override
     public void down() {
-
+        if(selectingTarget == true){
+            targetedCharacter--;
+            if(targetedCharacter < 0){
+                targetedCharacter = enemies.size() - 1;
+            }
+        }
     }
 
     @Override
@@ -71,6 +82,8 @@ public class Battle implements InputHandler {
         for(int i = 0; i < players.size(); i++){
             if(selectingTarget && players.get(i).isSelected() && players.get(i).ready()){
                 if(activeAbility.offensiveMove()) {
+                    updateEnemies();
+
                     selectingTarget = false;
                     targetedCharacters = new ArrayList<Character>();
                     targetedCharacters.add(enemies.get(targetedCharacter));
@@ -79,6 +92,8 @@ public class Battle implements InputHandler {
                     player.resetTimer();
                     Player.activePlayer = false;
                     player.setSelected(false);
+
+                    updateEnemies();
                 }else{
                     selectingTarget = false;
                     targetedCharacters = new ArrayList<Character>();
@@ -145,4 +160,18 @@ public class Battle implements InputHandler {
 
     }
 
+    private void updateEnemies(){
+        Iterator<Enemy> enemyIterator = enemies.iterator();
+
+        Enemy tempEnemy;
+
+        while(enemyIterator.hasNext()){
+            tempEnemy = enemyIterator.next();
+            if(tempEnemy.getHp() <= 0){
+                enemyIterator.remove();
+            }
+        }
+
+        System.out.println("Size: " + enemies.size());
+    }
 }

@@ -40,7 +40,7 @@ public abstract class Character {
     }
 
     public int getHp(){
-        return hp;
+        return currentHp;
     }
 
     abstract public void draw();

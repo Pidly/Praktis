@@ -19,7 +19,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
-    //1280, 720
 
     public final static int FRAME_RATE = 17;
 
@@ -97,9 +96,11 @@ public class Main {
         players.add(healer);
         players.add(caster);
 
-        Enemy enemy = new Enemy(200, 200, 100, 100, players);
+        Enemy enemy = new Enemy(ScreenDisplay.tileSize + battleDisplay.getLeftDisplay(), ScreenDisplay.tileSize*2 + battleDisplay.getBottomDisplay(), ScreenDisplay.tileSize, ScreenDisplay.tileSize, players);
+        Enemy enemy2 = new Enemy(ScreenDisplay.tileSize + battleDisplay.getLeftDisplay(), ScreenDisplay.tileSize*4 + battleDisplay.getBottomDisplay(), ScreenDisplay.tileSize, ScreenDisplay.tileSize, players);
 
         enemies.add(enemy);
+        enemies.add(enemy2);
 
         Battle battle = new Battle(players, enemies, healer);
 
