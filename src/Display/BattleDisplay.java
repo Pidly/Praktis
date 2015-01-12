@@ -1,5 +1,8 @@
 package Display;
 
+import Characters.*;
+import Characters.Character;
+import Game.BattleItems.Battle;
 import org.lwjgl.opengl.GL11;
 
 public class BattleDisplay {
@@ -31,7 +34,7 @@ public class BattleDisplay {
         setCharacterPositions();
     }
 
-    public void draw(){
+    public void draw(Battle battle){
         GL11.glColor3f(0.1f, 0.1f, 0.3f);
         GL11.glBegin(GL11.GL_QUADS);
 
@@ -67,6 +70,44 @@ public class BattleDisplay {
         GL11.glVertex2f(p3x + ScreenDisplay.tileSize, p3y - ScreenDisplay.tileSize);
         GL11.glVertex2f(p3x, p3y - ScreenDisplay.tileSize);
         GL11.glEnd();
+
+        Character character = battle.getTarget();
+
+        if(character != null){
+            if(character.isEnemy()) {
+                int x, y, width, height;
+                width = character.getWidth() / 4;
+                height = character.getHeight() / 4;
+                x = character.getX() + character.getWidth() + character.getWidth() / 4;
+                y = character.getY() - character.getHeight() / 2;
+
+                GL11.glColor3f(1.0f, 1.0f, 1.0f);
+
+                GL11.glBegin(GL11.GL_QUADS);
+                GL11.glVertex2f(x, y);
+                GL11.glVertex2f(x + width, y);
+                GL11.glVertex2f(x + width, y - height);
+                GL11.glVertex2f(x, y - height);
+                GL11.glEnd();
+            }else{
+                int x, y, width, height;
+
+                width = character.getWidth() / 4;
+                height = character.getWidth() / 4;
+
+                x = character.getX() - character.getWidth()/2;
+                y = character.getY() - character.getHeight() / 2;
+
+                GL11.glColor3f(1.0f, 1.0f, 1.0f);
+
+                GL11.glBegin(GL11.GL_QUADS);
+                GL11.glVertex2f(x, y);
+                GL11.glVertex2f(x + width, y);
+                GL11.glVertex2f(x + width, y - height);
+                GL11.glVertex2f(x, y - height);
+                GL11.glEnd();
+            }
+        }
     }
 
     private void setCharacterPositions(){

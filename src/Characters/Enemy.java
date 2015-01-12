@@ -23,7 +23,7 @@ public class Enemy extends Character implements Combat {
 
     public Enemy(int x, int y, int width, int height, List<? extends Character> players){
         super(x,y,width,height);
-
+        enemy = true;
         this.players = players;
 
         attackAbility = new AttackAbility();

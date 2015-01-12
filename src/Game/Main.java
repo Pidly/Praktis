@@ -92,9 +92,13 @@ public class Main {
 
         Caster caster = new Caster(battleDisplay.p3x, battleDisplay.p3y, ScreenDisplay.tileSize, ScreenDisplay.tileSize);
 
-        players.add(warrior);
-        players.add(healer);
+        //players.add(warrior);
+        //players.add(healer);
+        //players.add(caster);
+
         players.add(caster);
+        players.add(healer);
+        players.add(warrior);
 
         Enemy enemy = new Enemy(ScreenDisplay.tileSize + battleDisplay.getLeftDisplay(), ScreenDisplay.tileSize*2 + battleDisplay.getBottomDisplay(), ScreenDisplay.tileSize, ScreenDisplay.tileSize, players);
         Enemy enemy2 = new Enemy(ScreenDisplay.tileSize + battleDisplay.getLeftDisplay(), ScreenDisplay.tileSize*4 + battleDisplay.getBottomDisplay(), ScreenDisplay.tileSize, ScreenDisplay.tileSize, players);
@@ -102,7 +106,7 @@ public class Main {
         enemies.add(enemy);
         enemies.add(enemy2);
 
-        Battle battle = new Battle(players, enemies, healer);
+        Battle battle = new Battle(players, enemies, healer, battleDisplay);
 
         while(!Display.isCloseRequested() && !Input.getExitState()){
 
@@ -113,7 +117,7 @@ public class Main {
 
             GL11.glDisable(GL11.GL_TEXTURE_2D);
 
-            battleDisplay.draw();
+            battle.draw();
 
             for(Enemy enemy1 : enemies){
                 enemy1.draw();

@@ -4,6 +4,7 @@ import Characters.*;
 import Characters.Character;
 import Characters.Healer.Healer;
 
+import Display.BattleDisplay;
 import Game.InputHandler;
 
 import java.util.ArrayList;
@@ -14,6 +15,7 @@ public class Battle implements InputHandler {
     List<Player> players;
     List<Enemy> enemies;
 
+    private BattleDisplay battleDisplay;
 
     Player player;
     Enemy enemy;
@@ -33,10 +35,11 @@ public class Battle implements InputHandler {
         this.enemies = enemies;
     }
 
-    public Battle(List<Player> players, List<Enemy> enemies, Healer healer){
+    public Battle(List<Player> players, List<Enemy> enemies, Healer healer, BattleDisplay battleDisplay){
         this.players = players;
         this.enemies = enemies;
         this.healer = healer;
+        this.battleDisplay = battleDisplay;
     }
     Battle(Player player){
         this.player = player;
@@ -51,9 +54,16 @@ public class Battle implements InputHandler {
     public void up() {
         if(selectingTarget == true){
             targetedCharacter++;
-            if(targetedCharacter >= enemies.size()){
-                targetedCharacter = 0;
+            if(activeAbility.offensiveMove()) {
+                if (targetedCharacter >= enemies.size()) {
+                    targetedCharacter = 0;
+                }
+            }else{
+                if(targetedCharacter >= players.size()){
+                    targetedCharacter = 0;
+                }
             }
+
         }
     }
 
@@ -61,8 +71,14 @@ public class Battle implements InputHandler {
     public void down() {
         if(selectingTarget == true){
             targetedCharacter--;
-            if(targetedCharacter < 0){
-                targetedCharacter = enemies.size() - 1;
+            if(activeAbility.offensiveMove()) {
+                if (targetedCharacter < 0) {
+                    targetedCharacter = enemies.size() - 1;
+                }
+            }else{
+                if(targetedCharacter < 0){
+                    targetedCharacter = players.size() - 1;
+                }
             }
         }
     }
@@ -142,6 +158,23 @@ public class Battle implements InputHandler {
     @Override
     public void cancel() {
 
+    }
+
+    //-------------------------------------------//
+    public Character getTarget(){
+        if(selectingTarget){
+            if(activeAbility.offensiveMove()){
+                return enemies.get(targetedCharacter);
+            }else{
+                return players.get(targetedCharacter);
+            }
+        }else{
+            return null;
+        }
+    }
+
+    public void draw(){
+        battleDisplay.draw(this);
     }
 
     public boolean isSelectingTarget(){

@@ -20,6 +20,7 @@ public abstract class Player extends Character implements Combat {
 
     public Player(int x, int y, int width, int height) {
         super(x, y, width, height);
+        enemy = false;
     }
 
     @Override

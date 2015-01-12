@@ -11,6 +11,8 @@ public abstract class Character {
     protected int hp;
     protected int mp;
 
+    protected boolean enemy = true;
+
     protected int str;
     protected int spirit;
 
@@ -95,4 +97,23 @@ public abstract class Character {
         stats.setCurrentResourceProgressX(currentClassResource);
     }
 
+    public int getX(){
+        return x;
+    }
+
+    public int getY(){
+        return y;
+    }
+
+    public int getWidth(){
+        return width;
+    }
+
+    public int getHeight(){
+        return height;
+    }
+
+    public boolean isEnemy(){
+        return enemy;
+    }
 }
