@@ -108,6 +108,18 @@ public class BattleDisplay {
                 GL11.glEnd();
             }
         }
+
+        Character selectedPlayer = battle.getActiveCharacter();
+        if(selectedPlayer != null){
+            GL11.glColor4f(1.0f, 1.0f, 1.0f, 0.5f);
+
+            GL11.glBegin(GL11.GL_QUADS);
+            GL11.glVertex2f(selectedPlayer.getX() - 5, selectedPlayer.getY() + 5);
+            GL11.glVertex2f(selectedPlayer.getX() + selectedPlayer.getWidth() + 5, selectedPlayer.getY() + 5);
+            GL11.glVertex2f(selectedPlayer.getX() + selectedPlayer.getWidth() + 5, selectedPlayer.getY() - selectedPlayer.getHeight() - 5);
+            GL11.glVertex2f(selectedPlayer.getX() - 5, selectedPlayer.getY() - selectedPlayer.getHeight() - 5);
+            GL11.glEnd();
+        }
     }
 
     private void setCharacterPositions(){

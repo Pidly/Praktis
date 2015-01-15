@@ -2,8 +2,14 @@ package Game;
 
 import org.lwjgl.input.Keyboard;
 
+import java.security.Key;
+import java.util.HashMap;
+import java.util.Map;
+
 public class Input {
     private static boolean exitGame = false;
+
+    int rightAbility = Keyboard.KEY_B;
 
     public static synchronized boolean getExitState(){
         return exitGame;
@@ -20,8 +26,9 @@ public class Input {
                     //Maybe add stuff here later.
                 }
             }else{
-                if(Keyboard.getEventKey() == Keyboard.KEY_A){
-                    inputHandler.confirm();
+                int keyCode = Keyboard.getEventKey();
+                if(keyCode == Keyboard.KEY_A || keyCode == Keyboard.KEY_W){
+                    inputHandler.confirm(keyCode);
                 }
                 else if(Keyboard.getEventKey() == Keyboard.KEY_B) {
                     setExitState(true);

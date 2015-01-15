@@ -9,20 +9,23 @@ import org.lwjgl.opengl.GL11;
 public class Caster extends Player {
     private boolean selected = false;
     AttackAbility attackAbility;
+    CasterPrimaryAbility casterPrimaryAbility;
 
     public Caster(int x, int y, int width, int height) {
         super(x, y, width, height);
 
         attackAbility = new AttackAbility();
+        casterPrimaryAbility = new CasterPrimaryAbility(this);
 
+        abilities.add(casterPrimaryAbility);
         abilities.add(attackAbility);
 
         str = 20;
         spirit = 10;
 
-        this.currentHp = 40;
+        this.currentHp = 30;
 
-        hp = 50;
+        hp = 40;
         mp = 20;
         stats = new Stats(hp, mp, width, height, this.x, this.y, this.currentHp, maxClassResource, currentClassResource);
     }

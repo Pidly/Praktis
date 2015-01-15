@@ -45,6 +45,8 @@ public abstract class Character {
         return currentHp;
     }
 
+    public int getMaxHp(){return hp;}
+
     abstract public void draw();
     abstract public void update();
     abstract public void takeDamage(int damage);
@@ -96,6 +98,12 @@ public abstract class Character {
 
         stats.setCurrentResourceProgressX(currentClassResource);
     }
+
+    public int getMaxClassResource(){
+        return maxClassResource;
+    }
+
+    public int getCurrentClassResource(){return currentClassResource;}
 
     public int getX(){
         return x;

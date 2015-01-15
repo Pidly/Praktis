@@ -6,14 +6,15 @@ import Characters.Healer.Healer;
 
 import Display.BattleDisplay;
 import Game.InputHandler;
+import org.lwjgl.input.Keyboard;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 
 public class Battle implements InputHandler {
     List<Player> players;
     List<Enemy> enemies;
+
+    public Map<Integer, Integer> abilities = new HashMap<Integer, Integer>();
 
     private BattleDisplay battleDisplay;
 
@@ -40,6 +41,11 @@ public class Battle implements InputHandler {
         this.enemies = enemies;
         this.healer = healer;
         this.battleDisplay = battleDisplay;
+
+        abilities.put(Keyboard.KEY_A, 0);
+        abilities.put(Keyboard.KEY_W, 1);
+        abilities.put(Keyboard.KEY_D, 2);
+        abilities.put(Keyboard.KEY_S, 3);
     }
     Battle(Player player){
         this.player = player;
@@ -94,7 +100,7 @@ public class Battle implements InputHandler {
     }
 
     @Override
-    public void confirm() {
+    public void confirm(int keyCode) {
         for(int i = 0; i < players.size(); i++){
             if(selectingTarget && players.get(i).isSelected() && players.get(i).ready()){
                 if(activeAbility.offensiveMove()) {
@@ -124,7 +130,7 @@ public class Battle implements InputHandler {
             else if(players.get(i).ready() && players.get(i).isSelected() && !selectingTarget){
                 List<Ability> abilities = players.get(i).getAbilities();
 
-                activeAbility = abilities.get(0);
+                activeAbility = abilities.get(this.abilities.get(keyCode));
 
                 if(activeAbility.allTargets()){
                     if(activeAbility.offensiveMove()){
@@ -143,16 +149,19 @@ public class Battle implements InputHandler {
                     targetedCharacter = 0;
                     player = players.get(i);
                 }
-
-                /*
-                abilities.get(0).useAbility(enemies);
-                players.get(i).resetTimer();
-                Player.activePlayer = false;
-                players.get(i).setSelected(false);
-                */
-
             }
         }
+    }
+
+    public Character getActiveCharacter(){
+        Character character = null;
+
+        for(Player player : players){
+            if(player.ready() && player.isSelected()){
+                character = player;
+            }
+        }
+        return character;
     }
 
     @Override

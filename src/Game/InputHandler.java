@@ -13,6 +13,6 @@ public interface InputHandler {
     public void left();
     public void right();
 
-    public void confirm();
+    public void confirm(int keyCode);
     public void cancel();
 }
