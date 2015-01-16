@@ -1,19 +1,24 @@
 package Game.BattleItems;
 
 import Characters.*;
+import Characters.Caster.Caster;
 import Characters.Character;
 import Characters.Healer.Healer;
 
+import Characters.Warrior.Warrior;
 import Display.BattleDisplay;
+import Display.ScreenDisplay;
 import Game.InputHandler;
+import Game.Scene;
 import org.lwjgl.input.Keyboard;
 
 import java.util.*;
 
-public class Battle implements InputHandler {
+public class Battle implements Scene {
     List<Player> players;
     List<Enemy> enemies;
 
+    public static final String SCENE_NAME = "BATTLE_SCENE";
     public Map<Integer, Integer> abilities = new HashMap<Integer, Integer>();
 
     private BattleDisplay battleDisplay;
@@ -31,9 +36,44 @@ public class Battle implements InputHandler {
 
     private boolean selectingTarget = false;
 
-    public Battle(List<Player> players, List<Enemy> enemies){
-        this.players = players;
-        this.enemies = enemies;
+    public Battle(BattleDisplay battleDisplay){
+        this.battleDisplay = battleDisplay;
+
+        initPlayers();
+        initEnemies();
+
+        abilities.put(Keyboard.KEY_A, 0);
+        abilities.put(Keyboard.KEY_W, 1);
+        abilities.put(Keyboard.KEY_D, 2);
+        abilities.put(Keyboard.KEY_S, 3);
+    }
+
+    private void initPlayers(){
+        players = new ArrayList<Player>();
+
+        int pX = battleDisplay.px;
+        int pY = battleDisplay.py;
+        int pW = ScreenDisplay.tileSize;
+        int pH = ScreenDisplay.tileSize;
+
+
+        Warrior warrior = new Warrior(pX, pY, pW, pH);
+        Healer healer = new Healer(battleDisplay.p2x, battleDisplay.p2y, ScreenDisplay.tileSize, ScreenDisplay.tileSize);
+        Caster caster = new Caster(battleDisplay.p3x, battleDisplay.p3y, ScreenDisplay.tileSize, ScreenDisplay.tileSize);
+
+        players.add(caster);
+        players.add(healer);
+        players.add(warrior);
+    }
+
+    private void initEnemies(){
+        enemies = new ArrayList<Enemy>();
+
+        Enemy enemy = new Enemy(ScreenDisplay.tileSize + battleDisplay.getLeftDisplay(), ScreenDisplay.tileSize*2 + battleDisplay.getBottomDisplay(), ScreenDisplay.tileSize, ScreenDisplay.tileSize, players);
+        Enemy enemy2 = new Enemy(ScreenDisplay.tileSize + battleDisplay.getLeftDisplay(), ScreenDisplay.tileSize*4 + battleDisplay.getBottomDisplay(), ScreenDisplay.tileSize, ScreenDisplay.tileSize, players);
+
+        enemies.add(enemy);
+        enemies.add(enemy2);
     }
 
     public Battle(List<Player> players, List<Enemy> enemies, Healer healer, BattleDisplay battleDisplay){
@@ -46,14 +86,6 @@ public class Battle implements InputHandler {
         abilities.put(Keyboard.KEY_W, 1);
         abilities.put(Keyboard.KEY_D, 2);
         abilities.put(Keyboard.KEY_S, 3);
-    }
-    Battle(Player player){
-        this.player = player;
-    }
-
-    Battle(Player player, Enemy enemy){
-        this.player = player;
-        this.enemy = enemy;
     }
 
     @Override
@@ -182,8 +214,51 @@ public class Battle implements InputHandler {
         }
     }
 
+    @Override
+    public void update() {
+        draw();
+
+        for(Enemy enemy1 : enemies){
+            enemy1.update();
+            enemy1.draw();
+            enemy1.updateStatusEffect();
+        }
+
+        for(Player player1 : players){
+            player1.update();
+            player1.draw();
+            player1.updateStatusEffect();
+        }
+    }
+
     public void draw(){
         battleDisplay.draw(this);
+    }
+
+    @Override
+    public String getSceneName() {
+        return Battle.SCENE_NAME;
+    }
+
+    @Override
+    public boolean sceneOver() {
+        boolean gameOver = false;
+        int deadCharacters = 0;
+        if(enemies.size() <= 0){
+            gameOver = true;
+        }
+
+        for(Player player : players){
+            if(player.getHp() == 0){
+                deadCharacters++;
+            }
+        }
+
+        if(deadCharacters == 3){
+            gameOver = true;
+        }
+
+        return gameOver;
     }
 
     public boolean isSelectingTarget(){
@@ -213,7 +288,5 @@ public class Battle implements InputHandler {
                 enemyIterator.remove();
             }
         }
-
-        System.out.println("Size: " + enemies.size());
     }
 }

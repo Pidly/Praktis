@@ -19,6 +19,7 @@ public class ScreenDisplay {
 
     private DisplayMode displayMode;
     private BattleDisplay battleDisplay;
+    private MainScreenDisplay mainScreenDisplay;
 
     public static int tileSize;
 
@@ -69,11 +70,13 @@ public class ScreenDisplay {
         tileSize = playableScreenHeight / 8;
 
         battleDisplay = new BattleDisplay(this);
+        mainScreenDisplay = new MainScreenDisplay(this);
     }
 
     public BattleDisplay getBattleDisplay(){
         return battleDisplay;
     }
+    public MainScreenDisplay getMainScreenDisplay(){return mainScreenDisplay;}
 
     public DisplayMode getDisplayMode(){
         return displayMode;

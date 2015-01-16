@@ -49,35 +49,18 @@ public class Main {
             System.exit(0);
         }
 
-        BattleDisplay battleDisplay = screenDisplay.getBattleDisplay();
-
-        int pX = battleDisplay.px;
-        int pY = battleDisplay.py;
-        int pW = ScreenDisplay.tileSize;
-        int pH = ScreenDisplay.tileSize;
-
-
-        Warrior warrior = new Warrior(pX, pY, pW, pH);
+        SceneHandler sceneHandler = new SceneHandler(screenDisplay);
 
         GL11.glEnable(GL11.GL_TEXTURE_2D);
-
         GL11.glShadeModel(GL11.GL_SMOOTH);
-
         GL11.glDisable(GL11.GL_DEPTH_TEST);
-
         GL11.glDisable(GL11.GL_LIGHTING);
-
         GL11.glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
-
         GL11.glClearDepth(1);
-
         GL11.glEnable(GL11.GL_BLEND);
-
         GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
-
         GL11.glViewport(0, 0, screenDisplay.screenWidth, screenDisplay.screenHeight);
         GL11.glMatrixMode(GL11.GL_MODELVIEW);
-
         GL11.glMatrixMode(GL11.GL_PROJECTION);
         GL11.glLoadIdentity();
         GL11.glOrtho(0, screenDisplay.screenWidth, screenDisplay.screenHeight, 0, 1, -1);
@@ -86,37 +69,15 @@ public class Main {
         ttFont = new TrueTypeFont(font, antiAlias);
         // init openGL here
 
-        List<Player> players = new ArrayList<Player>();
-        List<Enemy> enemies = new ArrayList<Enemy>();
-        Healer healer = new Healer(battleDisplay.p2x, battleDisplay.p2y, ScreenDisplay.tileSize, ScreenDisplay.tileSize);
-
-        Caster caster = new Caster(battleDisplay.p3x, battleDisplay.p3y, ScreenDisplay.tileSize, ScreenDisplay.tileSize);
-
-        //players.add(warrior);
-        //players.add(healer);
-        //players.add(caster);
-
-        players.add(caster);
-        players.add(healer);
-        players.add(warrior);
-
-        Enemy enemy = new Enemy(ScreenDisplay.tileSize + battleDisplay.getLeftDisplay(), ScreenDisplay.tileSize*2 + battleDisplay.getBottomDisplay(), ScreenDisplay.tileSize, ScreenDisplay.tileSize, players);
-        Enemy enemy2 = new Enemy(ScreenDisplay.tileSize + battleDisplay.getLeftDisplay(), ScreenDisplay.tileSize*4 + battleDisplay.getBottomDisplay(), ScreenDisplay.tileSize, ScreenDisplay.tileSize, players);
-
-        enemies.add(enemy);
-        enemies.add(enemy2);
-
-        Battle battle = new Battle(players, enemies, healer, battleDisplay);
-
         while(!Display.isCloseRequested() && !Input.getExitState()){
 
             long currentMillis = System.currentTimeMillis();
 
             GL11.glClear(GL11.GL_COLOR_BUFFER_BIT | GL11.GL_DEPTH_BUFFER_BIT);
-
-
             GL11.glDisable(GL11.GL_TEXTURE_2D);
 
+            sceneHandler.update();
+            /*
             battle.draw();
 
             for(Enemy enemy1 : enemies){
@@ -132,6 +93,7 @@ public class Main {
             }
 
             Input.getInput(battle);
+            */
 
             Display.update();
 
